@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页_Hella个人博客</title>
+    <meta name="keywords" content="个人博客,Hella个人博客" />
+    <meta name="description" content="Hella个人博客" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'image/nasa-logo.svg' %}">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/share.css' %}" rel="stylesheet">
+    <link href="{% static 'css/m.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery.min.js' %}" ></script>
+    <script src="{% static 'js/share.js' %}"></script>
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header class="header-navigation" id="header">
+        <nav>
+            <div class="logo">
+                <a href="https://www.hellanasa.com">Hella个人博客</a>
+            </div>
+            <h2 id="mnavh">
+                <span class="navicon"></span>
+            </h2>
+            <ul id="starlist">
+                <li><a href="{% url 'blog:index/' %}">网站首页</a></li>
+                <li><a href="{% url 'blog:about/' %}">关于我</a></li>
+                <li><a href="{% url 'blog:share/' %}">知识库</a></li>
+                <li><a href="{% url 'blog:list/' %}">博客日记</a></li>
+                <li><a href="{% url 'blog:cover/' %}">学无止境</a>
+{#                <li><a href="/blog/info/">慢生活</a></li>#}
+                <li><a href="{% url 'blog:time/' %}">时间轴</a></li>
+            </ul>
+{#            <div class="searchbox">#}
+{#                <div id="search_bar" class="search_bar">#}
+{#                    <form  id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">#}
+{#                        <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">#}
+{#                        <input type="hidden" name="show" value="title" />#}
+{#                        <input type="hidden" name="tempid" value="1" />#}
+{#                        <input type="hidden" name="tbname" value="news">#}
+{#                         <input type="hidden" name="Submit" value="搜索" />#}
+{#                        <p class="search_ico"> <span></span></p>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+        </nav>
+    </header>
+    <article>
+{#        <div class="topbox">#}
+{#            <ul>#}
+{#                <li>#}
+{#                    <i>#}
+{#                        <a href="/">#}
+{#                            <span class="tnum">1</span>#}
+{#                            <span class="tpic">#}
+{#                                <img src="/static/image/5.jpg">#}
+{#                            </span>#}
+{#                            <span class="toptext">Django</span>#}
+{#                        </a>#}
+{#                    </i>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <i>#}
+{#                        <a href="/">#}
+{#                            <span class="tnum">2</span>#}
+{#                            <span class="tpic">#}
+{#                                <img src="/static/image/mb2.jpg">#}
+{#                            </span>#}
+{#                            <span class="toptext">Linux</span>#}
+{#                        </a>#}
+{#                    </i>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <i>#}
+{#                        <a href="/">#}
+{#                            <span class="tnum">3</span>#}
+{#                            <span class="tpic">#}
+{#                                <img src="/static/image/mb3.jpg">#}
+{#                            </span>#}
+{#                            <span class="toptext">Python</span>#}
+{#                        </a>#}
+{#                    </i>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <i>#}
+{#                        <a href="/">#}
+{#                            <span class="tnum">4</span>#}
+{#                            <span class="tpic">#}
+{#                                <img src="/static/image/mb4.jpg">#}
+{#                            </span>#}
+{#                            <span class="toptext">Docker</span>#}
+{#                        </a>#}
+{#                    </i>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+        <div class="fenlei">
+            <ul>
+                <li class="flselect"><a href="#top1">Python</a> </li>
+                <li><a href="#top2">Django</a> </li>
+                <li><a href="#top3">Mysql</a> </li>
+                <li><a href="#top4">Redis</a> </li>
+                <li><a href="#top5">Linux</a> </li>
+                <li><a href="#top6">Docker</a> </li>
+            </ul>
+        </div>
+        <div class="mbans">
+            <div class="mban"  style="display: block;" name="top1">
+                <ul>
+                    {% for python in article_obj_python %}
+                        <li><i><a href="{% url 'blog:article/' python.id %}"><span class="tnum">原创</span><img src="/static/image/mb1.jpg"> <span class="mbtitle">{{ python.title }}</span> </a></i></li>
+                    {% endfor %}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb2.jpg"> <span class="mbtitle">Python3数据类型之列表</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb3.jpg"> <span class="mbtitle">Python3数据类型之元组</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">Python3数据类型之字典</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb5.jpg"> <span class="mbtitle">Python3数据类型之数字</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb1.jpg"> <span class="mbtitle">Python3数据类型之集合</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb2.jpg"> <span class="mbtitle">Python3条件控制</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb3.jpg"> <span class="mbtitle">Python3循环</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">Python3函数</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb5.jpg"> <span class="mbtitle">Python3模块</span> </a></i></li>#}
+                </ul>
+            </div>
+            <div class="mban" name="top2">
+                <ul>
+                    {% for django in article_obj_django %}
+                        <li><i><a href="{% url 'blog:article/' django.id %}"><span class="tnum">原创</span><img src="/static/image/mb2.jpg"> <span class="mbtitle">{{ django.title }}</span> </a></i></li>
+                    {% endfor %}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">Mysql的安装（Mac）</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb2.jpg"> <span class="mbtitle">Mysql的安装（Linux）</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb3.jpg"> <span class="mbtitle">Navicat安装（Windows）</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb5.jpg"> <span class="mbtitle">Navicat安装（Mac）</span> </a></i></li>#}
+                </ul>
+            </div>
+            <div class="mban" name="top3">
+                <ul>
+                    {% for mysql in article_obj_mysql %}
+                        <li><i><a href="{% url 'blog:article/' mysql.id %}"><span class="tnum">原创</span><img src="/static/image/mb3.jpg"> <span class="mbtitle">{{ mysql.title }}</span> </a></i></li>
+                    {% endfor %}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb3.jpg"> <span class="mbtitle">Django视图之CBV使用</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">Django视图之CBV解决CSRF认证</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb5.jpg"> <span class="mbtitle">Django类试图</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb1.jpg"> <span class="mbtitle">Django的Models</span> </a></i></li>#}
+                </ul>
+            </div>
+            <div class="mban" name="top4">
+                <ul>
+                    {% for redis in article_obj_redis %}
+                        <li><i><a href="{% url 'blog:article/' redis.id %}"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">{{ redis.title }}</span> </a></i></li>
+                    {% endfor %}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb1.jpg"> <span class="mbtitle">Python操作Reids</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb2.jpg"> <span class="mbtitle">Django使用Redis连接池</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">Linux安装Redis</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb5.jpg"> <span class="mbtitle">Redis</span> </a></i></li>#}
+                </ul>
+            </div>
+            <div class="mban" name="top5">
+                <ul>
+                    {% for linux in article_obj_linux %}
+                        <li><i><a href="{% url 'blog:article/' linux.id %}"><span class="tnum">原创</span><img src="/static/image/mb5.jpg"> <span class="mbtitle">{{ linux.title }}</span> </a></i></li>
+                    {% endfor %}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb1.jpg"> <span class="mbtitle">Linux部署Django项目</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">Linux安装Python3</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb3.jpg"> <span class="mbtitle">Linux安装Mysql</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb5.jpg"> <span class="mbtitle">Xshell入门</span> </a></i></li>#}
+                </ul>
+            </div>
+            <div class="mban" name="top6">
+                <ul>
+                    {% for docker in article_obj_docker %}
+                        <li><i><a href="{% url 'blog:article/' docker.id %}"><span class="tnum">原创</span><img src="/static/image/mb6.jpg"> <span class="mbtitle">{{ docker.title }}</span> </a></i></li>
+                    {% endfor %}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb1.jpg"> <span class="mbtitle">Python3操作Mongodb</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb2.jpg"> <span class="mbtitle">Mongodb</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb3.jpg"> <span class="mbtitle">Mongodb</span> </a></i></li>#}
+{#                    <li><i><a href="/"><span class="tnum">原创</span><img src="/static/image/mb4.jpg"> <span class="mbtitle">Mongodb</span> </a></i></li>#}
+                </ul>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <p>Design by
+            <a href="https://www.hellanasa.com" target="_blank">Hella个人博客</a>
+            <a href="/">蜀ICP备11002373号-1</a>
+        </p>
+    </footer>
+    <a href="#" class="cd-top">Top</a>
+</body>
+</html>

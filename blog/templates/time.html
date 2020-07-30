@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页_Hella个人博客</title>
+    <meta name="keywords" content="个人博客,Hella个人博客" />
+    <meta name="description" content="Hella个人博客" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'image/nasa-logo.svg' %}">
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/time.css" rel="stylesheet">
+    <link href="/static/css/m.css" rel="stylesheet">
+    <script src="/static/js/jquery.min.js" ></script>
+    <script src="/static/js/scrollReveal.js"></script>
+    <script src="/static/js/time.js" ></script>
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header class="header-navigation" id="header">
+        <nav>
+            <div class="logo">
+                <a href="https://www.hellanasa.com">Hella个人博客</a>
+            </div>
+            <h2 id="mnavh">
+                <span class="navicon"></span>
+            </h2>
+            <ul id="starlist">
+                <li><a href="{% url 'blog:index/' %}">网站首页</a></li>
+                <li><a href="{% url 'blog:about/' %}">关于我</a></li>
+                <li><a href="{% url 'blog:share/' %}">知识库</a></li>
+                <li><a href="{% url 'blog:list/' %}">博客日记</a></li>
+                <li><a href="{% url 'blog:cover/' %}">学无止境</a>
+                <li><a href="{% url 'blog:time/' %}">时间轴</a></li>
+{#                <li><a href="/blog/info/">慢生活</a></li>#}
+            </ul>
+{#            <div class="searchbox">#}
+{#                <div id="search_bar" class="search_bar">#}
+{#                    <form  id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">#}
+{#                        <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">#}
+{#                        <input type="hidden" name="show" value="title" />#}
+{#                        <input type="hidden" name="tempid" value="1" />#}
+{#                        <input type="hidden" name="tbname" value="news">#}
+{#                        <input type="hidden" name="Submit" value="搜索" />#}
+{#                        <p class="search_ico"> <span></span></p>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+        </nav>
+    </header>
+    <article>
+        <div class="timebox">
+            <ul>
+                {% for i in article_obj %}
+                    <li><span>{{ i.time|date:'Y-m-d' }}</span><i><a href="{% url 'blog:article/' i.id %}" target="_blank">{{ i.title }}</a></i></li>
+                {% endfor %}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">个人博客，属于我的小世界！</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank">个人博客，我为什么要用帝国cms？</a></i></li>#}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">第二届 优秀个人博客模板比赛参选活动</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank">D设计师博客-一个热爱生活的设计师</a></i></li>#}
+{#                <li><span>2018-06-17</span><i><a href="/" target="_blank">个人博客用帝国cms 自定义页面 灵动标签调用网站所有信息</a></i></li>#}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">帝国cms 栏目高级调用 高亮并且二级栏目增加样式</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></i></li>#}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">个人博客模板《绅士》后台管理</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank">帝国cms 动态留言页，搜索页支持标签调用方法</a></i></li>#}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">用js实现手机导航-优化版</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank">帝国cms使用灵动标签实现当前栏目高亮的方法</a></i></li>#}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">帝国cms新闻系统增加图片集，并且列表模板调用所有小图实现方法</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank"> 帝国cms 首页或者列表页 实现图文不同样式调用方法</a></i></li>#}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">别让这些闹心的套路，毁了你的网页设计</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank">帝国cms自动设置标题图片选用文章第一张图片</a></i></li>#}
+{#                <li><span>2018-04-27</span><i><a href="/" target="_blank">html5个人博客模板《simple》</a></i></li>#}
+{#                <li><span>2018-06-18</span><i><a href="/" target="_blank">html5古典个人博客模板《青砖屋檐》</a></i></li>#}
+            </ul>
+        </div>
+        <div class="pagelist">
+            {% if topic_obj.has_previous %}
+                <li>
+                    <a href="?page={{ topic_obj.previous_page_number }}"></a>
+                </li>
+                <li>
+                    <a class="pagin" href="?page={{ topic_obj.previous_page_number }}">
+                        <span>上一页</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% for num in pageRange %}
+                <li class="paginItem{% if num == currentPage %}current{% endif %}">
+                    <a href="?page={{ num }}">{{ num }}</a>
+                </li>
+            {% endfor %}
+            {% if topic_obj.has_next %}
+                <li>
+                    <a href="?page={{ topic_obj.next_page_number }}"></a>
+                </li>
+                <li>
+                    <a class="pagin" href="?page={{ topic_obj.next_page_number }}">
+                        <span>下一页</span>
+                    </a>
+                </li>
+            {% endif %}
+        </div>
+    </article>
+    <footer>
+        <p>Design by
+            <a href="https://www.hellanasa.com" target="_blank">Hella个人博客</a>
+            <a href="/">蜀ICP备11002373号-1</a>
+        </p>
+    </footer>
+    <a href="#" class="cd-top">Top</a>
+</body>
+</html>
