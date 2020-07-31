@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l9=+aac^59eybxyz!*4*#q4$xx9_t2=lc_xot_*pg0_fp#+i2_'
+SECRET_KEY = '#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'hella.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog',
-        'USER': 'root',
-        'PASSWORD': 'Admin2020/',
-        'HOST' : '47.100.88.67',
-        'PORT' : 3306,
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST' : '',
+        'PORT' : ,
 
     }
 }
@@ -126,10 +126,10 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-#配置静态文件的存储路径
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads'),  #uploads必须存在，且在项目目录下
-MEDIA_URL = '/media/'   #你上传的文件和图片会默认存在/uploads/editor下
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads'), 
+MEDIA_URL = '/media/'   
